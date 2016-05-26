@@ -1,0 +1,4 @@
+test:
+  override:
+    - make raspberrypi0_embedded_defconfig
+    - make
