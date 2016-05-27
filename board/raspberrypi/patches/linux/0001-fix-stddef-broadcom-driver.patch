@@ -1,0 +1,12 @@
+diff -ru linux-custom/drivers/misc/vc04_services/interface/vchiq_arm/vchiq_shim.c linux-custom-patched/drivers/misc/vc04_services/interface/vchiq_arm/vchiq_shim.c
+--- linux-custom/drivers/misc/vc04_services/interface/vchiq_arm/vchiq_shim.c	2016-04-27 14:08:20.000000000 +0200
++++ linux-custom-patched/drivers/misc/vc04_services/interface/vchiq_arm/vchiq_shim.c	2016-05-27 10:28:26.069804190 +0200
+@@ -39,8 +39,6 @@
+ 
+ #include "vchiq_util.h"
+ 
+-#include <stddef.h>
+-
+ #define vchiq_status_to_vchi(status) ((int32_t)status)
+ 
+ typedef struct {

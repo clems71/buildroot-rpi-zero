@@ -6,3 +6,4 @@ test:
   override:
     - make raspberrypi0_embedded_defconfig
     - make
+    - cp output/images/sdcard.img $CIRCLE_ARTIFACTS

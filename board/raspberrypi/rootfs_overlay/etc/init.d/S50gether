@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+ 	echo "Starting USB ethernet gadget..."
+  modprobe dwc2
+  modprobe g_ether
+	;;
+  stop)
+	printf "Stoping USB ethernet gadget..."
+	rmmod g_ether
+  rmmod dwc2
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
