@@ -1,3 +1,7 @@
+dependencies:
+  cache_directories:
+    - "dl"
+
 test:
   override:
     - make raspberrypi0_embedded_defconfig
