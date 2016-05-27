@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+ 	echo "Starting USB ethernet gadget..."
+  modprobe dwc2
+  modprobe g_ether host_addr=ea:50:ab:aa:06:0c dev_addr=e2:b9:9f:39:a9:24
+	;;
+  stop)
+	printf "Stopping USB ethernet gadget..."
+	rmmod g_ether
+  rmmod dwc2
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

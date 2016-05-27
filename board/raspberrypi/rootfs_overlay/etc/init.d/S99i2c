@@ -2,14 +2,14 @@
 
 case "$1" in
   start)
- 	echo "Starting USB ethernet gadget..."
-  modprobe dwc2
-  modprobe g_ether
+ 	echo "Starting I2C..."
+  modprobe i2c-bcm2708 baudrate=150000
+  modprobe i2c-dev
 	;;
   stop)
-	printf "Stoping USB ethernet gadget..."
-	rmmod g_ether
-  rmmod dwc2
+	printf "Stopping I2C..."
+  rmmod i2c-dev
+  rmmod i2c-bcm2708  
 	;;
   restart|reload)
 	"$0" stop

@@ -15,6 +15,7 @@ disable_overscan=1
 
 # Needed for ethernet gadget to work
 dtoverlay=dwc2
+dtoverlay=i2c1-bcm2708
 
 # How much memory in MB to assign to the GPU on Pi models having
 # 256, 512 or 1024 MB total memory
