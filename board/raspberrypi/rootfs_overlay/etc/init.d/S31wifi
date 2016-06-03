@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+ 	echo "Starting wifi..."
+  modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
+  echo "2001 330D" | tee /sys/bus/usb/drivers/rtl8192cu/new_id
+  sleep 5 # Waiting for initialization!
+	;;
+  stop)
+	printf "Stopping wifi..."
+	rmmod 8192cu
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
